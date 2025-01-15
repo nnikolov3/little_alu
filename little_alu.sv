@@ -134,7 +134,7 @@ module ece593_alu (
             end_op = 1'b1;
           end
 
-          /////////////////////////////// #5 reset_p = 0;/
+          ////////////////////////////////
           MUL: begin
             next_state = CYCLE_1;
             result = A * B;
