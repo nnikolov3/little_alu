@@ -1,0 +1,91 @@
+# Disclaimer: THIS IS A SCHOOL PROJECT.
+# // -----------------------------------------------------
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2024.1 linux_x86_64 Apr 19 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+vlog -reportprogress 300 -work work /home/niko/School/ECE593/assignment1/ece593_alu_tb.sv /home/niko/School/ECE593/assignment1/ece593_alu.sv
+Example Transcript
+run -all
+# A:0000|B:0000|sel:0000|result:xxxxxxxx|end_op:0
+# Testing NO OP functionality
+# A:0000|B:0000|sel:0000|result:00000000|end_op:1
+# ==========================================================
+# Testing ADD functionality
+# ADD test #1
+# A:0005|B:0003|sel:0001|result:00000008|end_op:1
+# Expected:          8|Result:         8
+# ==========================================================
+# ADD test #2
+# A:0000|B:0000|sel:0001|result:00000000|end_op:1
+# Expected:          0|Result:         0
+# ==========================================================
+# Testing SUB functionality
+# Testing only positive integers
+# SUB test #1
+# A:0005|B:0003|sel:0010|result:00000002|end_op:1
+# Expected:          2|Result:         2
+# ==========================================================
+# SUB test #2
+# A:270f|B:0003|sel:0010|result:0000270c|end_op:1
+# Expected:      9996|Result:      9996
+# ==========================================================
+# Testing XOR functionality
+# XOR test #1
+# A:aaaa|B:5555|sel:0011|result:0000ffff|end_op:1
+# Expected:0000ffff|Result:0000ffff
+# ==========================================================
+# XOR test #2
+# A:ffff|B:0000|sel:0011|result:0000ffff|end_op:1
+# Expected:0000ffff|Result:0000ffff
+# ==========================================================
+# Testing MUL functionality
+# MUL test #1
+# A:0002|B:0003|sel:0100|result:00000006|end_op:1
+# A:0002|B:0003|sel:0100|result:00000006|end_op:0
+# A:0002|B:0003|sel:0100|result:00000006|end_op:1
+# Expected:          6|Result:         6
+# ==========================================================
+# A:0002|B:0003|sel:0100|result:00000006|end_op:0
+# MUL test #2
+# A:0014|B:0000|sel:0100|result:00000006|end_op:0
+# A:0014|B:0000|sel:0100|result:00000000|end_op:1
+# A:0014|B:0000|sel:0100|result:00000000|end_op:0
+# A:0014|B:0000|sel:0100|result:00000000|end_op:1
+# Expected:          0|Result:         0
+# ==========================================================
+# A:0014|B:0000|sel:0100|result:00000000|end_op:0
+# Testing AND functionality
+# AND test #1
+# A:aaaa|B:ffff|sel:0101|result:00000000|end_op:0
+# A:aaaa|B:ffff|sel:0101|result:0000aaaa|end_op:1
+# Expected:0000aaaa|Result:0000aaaa
+# ==========================================================
+# AND test #2
+# A:0000|B:a0a0|sel:0101|result:00000000|end_op:1
+# Expected:00000000|Result:00000000
+# ==========================================================
+# Testing 'DISPLAY NAME functionality
+# Testing for 3'b111
+# ==========================================================
+# My name is Niko
+# A:0000|B:0000|sel:0111|result:00000000|end_op:1
+# My name is Niko
+# A:0000|B:0000|sel:0110|result:00000000|end_op:1
+# Testing for 3'b110
+# ==========================================================
+# Testbench completed.
+# ==========================================================
+# ** Note: $finish    
+#    Time: 389 ns  Iteration: 0  Instance: /small_alu_tb
+
