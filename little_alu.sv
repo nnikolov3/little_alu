@@ -20,7 +20,7 @@ Operations:
 3'b110, 3'b111: display (display your name)
 */
 
-module ece593_alu (
+module little_alu (
     clk,
     A,
     B,
